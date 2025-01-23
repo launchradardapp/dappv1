@@ -29,7 +29,8 @@ export default function ApplyListing() {
         const { error } = await response.json();
         setError(error || 'Something went wrong.');
       }
-    } catch (err) {
+    } catch (error: unknown) { // Explicitly type the error as `unknown`
+      console.error('Error while submitting post:', error); // Log the error
       setError('Failed to submit the post. Please try again later.');
     }
   };
