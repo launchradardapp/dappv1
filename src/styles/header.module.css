@@ -1,0 +1,84 @@
+/* src/styles/header.module.css */
+.header {
+    background-color: #0E1621; /* Dark background */
+    color: white; /* White text */
+    height: 60px; /* Set consistent height for the header */
+    border-bottom: 1px solid #212F39; /* Dark border */
+    padding: 0 1rem; /* Horizontal padding */
+  }
+  
+  .container {
+    height: 100%; /* Take full height of the header */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Space between logo and right-aligned items */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center; /* Center logo and text vertically */
+    margin-right: 2rem; /* Space between logo and tabs */
+  }
+  
+  .logoLink {
+    display: flex;
+    align-items: center; /* Center logo and text vertically */
+    text-decoration: none;
+    color: inherit; /* Inherit text color */
+  }
+  
+  .logoCircle {
+    width: 30px; /* Circle size */
+    height: 30px;
+    background-color: #00D0FF; /* Circle color */
+    border-radius: 50%; /* Make it a circle */
+    margin-right: 0.5rem; /* Space between circle and text */
+  }
+  
+  .siteName {
+    font-size: 16px; /* Text size */
+    font-weight: 600;
+    color: #00D0FF;
+  }
+  
+  .nav {
+    display: flex; /* Arrange tabs horizontally */
+    align-items: center; /* Align tabs vertically */
+    gap: 1rem; /* Space between tabs */
+  }
+  
+  .navLink {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Default tab color */
+    font-size: 14px; /* Tab font size */
+    font-weight: 500;
+    padding: 0.5rem 1rem; /* Padding for clickable area */
+  }
+  
+  .navLink.active {
+    background-color: #1A2B3C; /* Background color for active tab */
+    color: #ffffff; /* Text color for active tab */
+    border-radius: 10px; /* Rounded corners for active tab */
+  }
+  
+  .applyButtonWrapper {
+    margin-left: auto; /* Push the button to the right */
+  }
+  
+  .applyButton {
+    display: inline-block;
+    padding: 0.5rem 1rem; /* Button padding */
+    background-color: #00A3FF; /* Button background color */
+    color: #ffffff; /* Button text color */
+    font-size: 13px; /* Button font size */
+    font-weight: 500;
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .applyButton:hover {
+    background-color: #008cdc; /* Slightly darker on hover */
+    color: white; /* Change text to white on hover */
+  }
+  
