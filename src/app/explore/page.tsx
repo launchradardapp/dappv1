@@ -13,12 +13,14 @@ type Post = {
   launch_type: string;
   platform: string;
   launch_date: string;
-  launch_time: string;
 };
+
+const chains = ['All Chains', 'Ethereum', 'BSC Smart Chain', 'Solana', 'AVAX'];
 
 export default function ExploreProjects() {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
+  const [activeChain, setActiveChain] = useState('All Chains');
 
   useEffect(() => {
     // Fetch posts from the API
@@ -27,40 +29,85 @@ export default function ExploreProjects() {
         const response = await fetch('/api/posts');
         const data = await response.json();
         setPosts(data);
-        setLoading(false);
+        setFilteredPosts(data); // Initially show all posts
       } catch (error) {
         console.error('Error fetching posts:', error);
-        setLoading(false);
       }
     };
 
     fetchPosts();
   }, []);
 
+  const handleFilter = (chain: string) => {
+    setActiveChain(chain);
+    if (chain === 'All Chains') {
+      setFilteredPosts(posts);
+    } else {
+      setFilteredPosts(posts.filter((post) => post.chain === chain));
+    }
+  };
+
   return (
     <div className={styles.exploreContainer}>
-      <h1 className={styles.heading}>Explore Projects</h1>
-      {loading ? (
-        <p className={styles.loading}>Loading projects...</p>
-      ) : posts.length === 0 ? (
-        <p className={styles.noPosts}>No projects found.</p>
-      ) : (
-        <ul className={styles.postList}>
-          {posts.map((post) => (
-            <li key={post.id} className={styles.postItem}>
-              <h2 className={styles.postTitle}>{post.title}</h2>
-              <p><strong>Symbol:</strong> {post.symbol}</p>
-              <p><strong>Chain:</strong> {post.chain}</p>
-              <p><strong>DEX:</strong> {post.dex}</p>
-              <p><strong>Category:</strong> {post.category}</p>
-              <p><strong>Launch Type:</strong> {post.launch_type}</p>
-              <p><strong>Platform:</strong> {post.platform}</p>
-              <p><strong>Launch Date:</strong> {new Date(post.launch_date).toLocaleDateString()}</p>
-              <p><strong>Launch Time:</strong> {post.launch_time}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      <h1 className={styles.heading}>Discover Upcoming Projects</h1>
+      {/* Static Navbar */}
+      <div className={styles.navbar}>
+        {chains.map((chain) => (
+          <button
+            key={chain}
+            className={`${styles.navButton} ${
+              activeChain === chain ? styles.active : ''
+            }`}
+            onClick={() => handleFilter(chain)}
+          >
+            {chain}
+          </button>
+        ))}
+      </div>
+
+      {/* Post Cards */}
+      <div className={styles.cardContainer}>
+        {filteredPosts.length > 0 ? (
+          <ul className={styles.postList}>
+            {filteredPosts.map((post) => (
+              <li key={post.id} className={styles.postItem}>
+                <div className={styles.coverPhoto}></div>
+                <div className={styles.cardContent}>
+                  <div className={styles.logoSection}>
+                    <div className={styles.logo}></div>
+                    <p className={styles.chain}>{post.chain}</p>
+
+                  </div>
+                  <div className={styles.title}>
+                      <h2 className={styles.postTitle}>{post.title}</h2>
+                      <p className={styles.symbol}>{post.symbol}</p>
+                      <p className={styles.category}>{post.category}</p>
+                  </div>
+                  <div className={styles.details}>
+                    <div className={styles.detailRow}>
+                      <span className={styles.types}>Type</span>
+                      <span className={styles.detail}>{post.launch_type}</span>
+                    </div>
+                    <div className={styles.detailRow}>
+                      <span className={styles.types}>DEX</span>
+                      <span className={styles.detail}>{post.dex}</span>
+                    </div>
+                    <div className={styles.detailRow}>
+                      <span className={styles.types}>Platform</span>
+                      <span className={styles.detail}>{post.platform}</span>
+                    </div>
+                  </div>
+                  <p className={styles.launchDate}>
+                    {new Date(post.launch_date).toLocaleDateString()}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.noPosts}>No projects found for this chain.</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -48,9 +48,6 @@ header {
   flex: 1; /* Content expands to fill available space */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  padding: 1rem;
 }
 
 /* Fixed height for the footer */
@@ -79,4 +76,35 @@ a {
 ul, ol {
   padding: 0; /* Reset padding */
   list-style: none; /* Remove default list styles */
+}
+
+/* Ensure consistent box-sizing for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  /* Webkit Browsers (Chrome, Safari, Brave) */
+  *::-webkit-scrollbar {
+    width: 8px;
+    
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff00; /* Track background color */
+    border-radius: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #2a3744; /* Scrollbar thumb color */
+    border-radius: 10px;
+    
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #ffffff48; /* Darker on hover */
+  }
+
 }

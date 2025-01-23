@@ -1,52 +1,178 @@
 /* src/styles/explore.module.css */
+
 .exploreContainer {
-    padding: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.25rem 15.25rem;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
   
   .heading {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #00d0ff;
+    font-size: 26px;
+    font-weight: 600;
   }
   
-  .loading,
-  .noPosts {
-    color: #a0aec0; /* Lighter gray text */
-    font-size: 1.25rem;
-    margin-top: 2rem;
+  .navbar {
+    width: 100%;
+    background-color: #182633;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 12px;
+  }
+  
+  .navButton {
+    background-color: transparent;
+    color: #a0aec0;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s, background-color 0.2s;
+  }
+  
+  .navButton:hover {
+    color: white;
+  }
+  
+  .navButton.active {
+    color: white;
+    position: relative;
+  }
+  
+  .navButton.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #00a3ff;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .cardContainer {
+    width: 100%;
+    min-height: 20rem;
   }
   
   .postList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
   
   .postItem {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    border: 1px solid #212f39;
+    position: relative;
     border-radius: 8px;
-    background-color: #0e1621;
+    background-color: #182633;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  
+
   .postItem:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }  
+  
+  .coverPhoto {
+    height: 70px;
+    background-color: #36e8ff;
+  }
+  
+  .cardContent {
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .logoSection {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+  
+  .logo {
+    width: 72px;
+    height: 72px;
+    background-color: #527386;
+    border-radius: 50%;
+    position: absolute;
+    top: 35px; /* Half overlaps the cover */
+    border: 3px solid #182633;
   }
   
   .postTitle {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0 0 0.5rem;
-    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
   }
   
-  .postDate {
-    font-size: 0.875rem;
+  .symbol {
+    color: #849DAC;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .category {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    display: inline-block; /* Ensure it takes only the space needed */
+    text-align: center; /* Center the text horizontally */
+    padding: 0.32rem 0.8rem; /* Add some padding for better appearance */
+    font-size: 12px; /* Adjust font size */
+    color: white; /* Set text color */
+    background-color: #007bff; /* Blue background */
+    border-radius: 8px; /* Smooth corners */
+    overflow: hidden; /* Prevent text overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+    white-space: nowrap; /* Prevent the text from wrapping */
+  }
+  
+  .chain {
+    padding-top: 0.5rem;
+    margin-left: auto; /* Push the element to the far right */
+    font-size: 13px;
+    font-weight: 550;
+    color: #849DAC;
+  }
+  
+  .detailRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
+  }
+
+  .types {
+    font-size: 13px;
+    color: #849DAC;
+    font-weight: 600;
+
+  }
+
+  .detail {
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 500;
+
+  }
+
+  
+  .launchDate {
+    font-size: 0.9rem;
+    margin-top: 1rem;
     color: #a0aec0;
   }
   

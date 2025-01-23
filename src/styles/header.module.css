@@ -18,7 +18,7 @@
   .logo {
     display: flex;
     align-items: center; /* Center logo and text vertically */
-    margin-right: 2rem; /* Space between logo and tabs */
+    margin-right: 5rem; /* Space between logo and tabs */
   }
   
   .logoLink {
@@ -29,8 +29,8 @@
   }
   
   .logoCircle {
-    width: 30px; /* Circle size */
-    height: 30px;
+    width: 35px; /* Circle size */
+    height: 35px;
     background-color: #00D0FF; /* Circle color */
     border-radius: 50%; /* Make it a circle */
     margin-right: 0.5rem; /* Space between circle and text */
@@ -57,7 +57,7 @@
   }
   
   .navLink.active {
-    background-color: #1A2B3C; /* Background color for active tab */
+    background-color: #182633; /* Background color for active tab */
     color: #ffffff; /* Text color for active tab */
     border-radius: 10px; /* Rounded corners for active tab */
   }
