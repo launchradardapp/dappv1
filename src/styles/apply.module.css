@@ -1,0 +1,66 @@
+/* src/styles/apply.module.css */
+.applyContainer {
+    padding: 2rem;
+    color: white;
+  }
+  
+  .heading {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00d0ff;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .label {
+    font-size: 1rem;
+    color: #a0aec0;
+  }
+  
+  .input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #212f39;
+    border-radius: 5px;
+    background-color: #0e1621;
+    color: white;
+  }
+  
+  .input:focus {
+    border-color: #00d0ff;
+    outline: none;
+  }
+  
+  .button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #00d0ff;
+    color: #0e1621;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .button:hover {
+    background-color: #00a5d1;
+  }
+  
+  .success {
+    color: #38a169;
+    margin-top: 1rem;
+  }
+  
+  .error {
+    color: #e53e3e;
+    margin-top: 1rem;
+  }
+  
