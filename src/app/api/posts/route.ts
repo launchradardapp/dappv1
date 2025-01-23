@@ -8,11 +8,17 @@ const pool = new Pool({
   },
 });
 
+// GET: Fetch all posts from the database
 export async function GET() {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM posts ORDER BY created_at DESC');
+    const result = await client.query(`
+      SELECT id, title, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time
+      FROM posts
+      ORDER BY created_at DESC
+    `);
     client.release();
+
     return NextResponse.json(result.rows);
   } catch (error) {
     console.error('Error fetching posts:', error);
@@ -20,17 +26,59 @@ export async function GET() {
   }
 }
 
+// POST: Insert a new post into the database
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { title } = body;
+    const {
+      title,
+      symbol,
+      chain,
+      dex,
+      category,
+      launch_type,
+      platform,
+      launch_date,
+      launch_time,
+    } = body;
 
-    if (!title || title.trim() === '') {
-      return NextResponse.json({ error: 'Title is required.' }, { status: 400 });
+    // Validation
+    if (
+      !title?.trim() ||
+      !symbol?.trim() ||
+      !chain?.trim() ||
+      !dex?.trim() ||
+      !category?.trim() ||
+      !launch_type?.trim() ||
+      !platform?.trim() ||
+      !launch_date?.trim() ||
+      !launch_time?.trim()
+    ) {
+      return NextResponse.json(
+        { error: 'All fields are required.' },
+        { status: 400 }
+      );
     }
 
+    // Insert into the database
     const client = await pool.connect();
-    await client.query('INSERT INTO posts (title) VALUES ($1)', [title.trim()]);
+    await client.query(
+      `
+      INSERT INTO posts (title, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      `,
+      [
+        title.trim(),
+        symbol.trim(),
+        chain.trim(),
+        dex.trim(),
+        category.trim(),
+        launch_type.trim(),
+        platform.trim(),
+        launch_date.trim(),
+        launch_time.trim(),
+      ]
+    );
     client.release();
 
     return NextResponse.json({ message: 'Post added successfully!' });
