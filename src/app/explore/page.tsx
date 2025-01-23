@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { IoRocketSharp } from "react-icons/io5";
 import styles from '@/styles/explore.module.css';
 
 type Post = {
@@ -81,7 +82,9 @@ export default function ExploreProjects() {
                   <div className={styles.title}>
                       <h2 className={styles.postTitle}>{post.title}</h2>
                       <p className={styles.symbol}>{post.symbol}</p>
-                      <p className={styles.category}>{post.category}</p>
+                      <p className={`${styles.category} ${post.category === 'Utility' ? styles.utility : styles.meme}`}>
+                        {post.category}
+                      </p>
                   </div>
                   <div className={styles.details}>
                     <div className={styles.detailRow}>
@@ -98,7 +101,9 @@ export default function ExploreProjects() {
                     </div>
                   </div>
                   <p className={styles.launchDate}>
-                    {new Date(post.launch_date).toLocaleDateString()}
+                    <IoRocketSharp size={22} style={{ color: '#849DAC' }} />
+                    {new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).format(new Date(post.launch_date))}
+
                   </p>
                 </div>
               </li>

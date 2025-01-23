@@ -128,17 +128,38 @@
   .category {
     margin-top: 0.75rem;
     margin-bottom: 0.5rem;
-    display: inline-block; /* Ensure it takes only the space needed */
-    text-align: center; /* Center the text horizontally */
-    padding: 0.32rem 0.8rem; /* Add some padding for better appearance */
-    font-size: 12px; /* Adjust font size */
+    display: inline-block;
+    text-align: center;
+    padding: 0.32rem 0.8rem;
+    font-size: 12px;
     color: white; /* Set text color */
-    background-color: #007bff; /* Blue background */
     border-radius: 8px; /* Smooth corners */
     overflow: hidden; /* Prevent text overflow */
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
     white-space: nowrap; /* Prevent the text from wrapping */
   }
+  
+
+  .utility {
+    background-color: #0080D0; /* Blue background for Utility */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.236); /* Subtle shadow for better contrast */
+
+  }
+  
+  .meme {
+    background: linear-gradient(45deg, #e601a9, #ff758c, #ffac30, #ffd856); /* Fun gradient */
+    color: white; /* White text for contrast */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.236); /* Subtle shadow for better contrast */
+    border-radius: 8px; /* Smooth corners */
+    padding: 0.32rem 0.8rem; /* Consistent padding */
+    font-size: 12px; /* Adjust font size */
+    text-align: center; /* Center the text */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Ensure no overflow issues */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  }
+  
+  
   
   .chain {
     padding-top: 0.5rem;
@@ -171,8 +192,13 @@
 
   
   .launchDate {
-    font-size: 0.9rem;
+    font-size: 13px;
+    font-weight: 600;
     margin-top: 1rem;
-    color: #a0aec0;
+    color: #ffffff;
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Vertically align the icon and text */
+    gap: 0.5rem; /* Add space between the icon and text */
   }
+  
   
