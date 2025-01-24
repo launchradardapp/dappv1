@@ -13,7 +13,7 @@ export async function GET() {
   try {
     const client = await pool.connect();
     const result = await client.query(`
-      SELECT id, title, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time
+      SELECT id, title, slug, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time
       FROM posts
       ORDER BY created_at DESC
     `);
@@ -26,7 +26,10 @@ export async function GET() {
   }
 }
 
+
+
 // POST: Insert a new post into the database
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -60,12 +63,18 @@ export async function POST(req: Request) {
       );
     }
 
+    // Generate slug
+    const slug = `${chain.trim().toLowerCase().replace(/ /g, '-')}-${title
+      .trim()
+      .toLowerCase()
+      .replace(/ /g, '-')}-${Date.now()}`;
+
     // Insert into the database
     const client = await pool.connect();
     await client.query(
       `
-      INSERT INTO posts (title, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      INSERT INTO posts (title, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time, slug)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       `,
       [
         title.trim(),
@@ -77,6 +86,7 @@ export async function POST(req: Request) {
         platform.trim(),
         launch_date.trim(),
         launch_time.trim(),
+        slug, // Add slug
       ]
     );
     client.release();

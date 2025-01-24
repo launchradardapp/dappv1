@@ -1,0 +1,309 @@
+.detailContainer {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    background-color: #ffedd500;
+    color: #333;
+    min-height: calc(100vh - 120px);
+    display: flex;
+  }
+  
+  .leftSection {
+    flex: 1;
+    background-color: #ffffff00;
+    border-left: 1px solid #212F39;
+    border-right: 1px solid #212F39;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .coverPhotoContainer {
+    height: 125px; /* Fixed height for the cover photo */
+    background-color: orange;
+    width: 100%;
+    overflow: hidden; /* Correct overflow handling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure it's positioned within its section */
+}
+  
+  .coverPhoto {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .projectDetailsWrapper {
+    margin-top: -45px; /* Move the entire wrapper up */
+    border-bottom: 1px solid #212F39; /* Add bottom border */
+    padding: 0 1rem; /* Add padding at the bottom */
+    background-color: #f9f9f900; /* Ensure wrapper has its background */
+    position: relative; /* For proper positioning */
+    z-index: 1; /* Ensure it appears above the cover photo */
+}
+
+.projectDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+  
+  .logoAndInfo {
+    display: flex;
+    justify-content: space-between; /* Push logo to the left, info to the right */
+    align-items: center; /* Align items vertically */
+    margin-top: 0; /* Adjust to overlap the cover photo */
+  }
+  
+  .logoContainer {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #0E1621;
+  }
+  
+  .logo {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .infoContainer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end; /* Align all content to the far right */
+    align-items: center; /* Center items vertically */
+    gap: 1rem; /* Add spacing between the chain and launch date */
+  }
+  
+  .chainWithIcon {
+    display: flex;
+    align-items: center; /* Align text and icon vertically */
+    gap: 0.5rem; /* Space between icon and text */
+    background-color: #2E414E; /* Match the chain box background */
+    color: #C2D3DC;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    padding-right: 1rem;
+    padding-left: 0.75rem;
+    border-radius: 500px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  
+  .chainIcon {
+    width: 18px; /* Adjust size as needed */
+    height: 18px;
+    object-fit: contain; /* Ensure the icon retains its aspect ratio */
+  }
+  
+  
+  .launchDate {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically align the icon and text */
+    gap: 0.25rem; /* Add space between the icon and text */
+    font-size: 13px;
+    font-weight: 600;
+    color: #849DAC;
+  }
+
+  .titleAndSymbol {
+    margin-top: 0.5rem; /* Space between logo and title/symbol */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .projectTitle {
+    font-size: 20px;
+    font-weight: 550;
+    color: #ffffff; /* White text for title */
+  }
+  
+  .projectSymbol {
+    font-size: 14px;
+    font-weight: 600;
+    color: #849dac; /* Subtle color for the symbol */
+    margin: 0;
+  }
+  
+  /* Socials Section */
+  .socialsSection {
+    padding: 1rem 0; /* Space above socials */
+    padding-bottom: 0.8rem;
+    
+  }
+  
+  
+  .socialLinks {
+    display: flex;
+    gap: 0.45rem; /* Add space between links */
+    flex-wrap: wrap; /* Wrap links to the next line if needed */
+  }
+  
+  .socialLink {
+    background-color: #2E414E; /* Background for social links */
+    color: white;
+    padding: 0.30rem 0.9rem;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .socialLink:hover {
+    background-color: #00a3ff; /* Hover effect for social links */
+  }
+
+  .additionalContent {
+    flex: 1; /* Fill remaining space in the left section */
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f900; /* Matches the left section background */
+    overflow-y: auto; /* Scrollable if content overflows */
+  }
+  
+  /* Tabs Navbar */
+  .tabs {
+    padding: 0 1rem;
+    padding-top: 0.5rem;
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #212F39; /* Base underline for all tabs */
+  }
+  
+  .tab {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align icon and text vertically */
+    gap: 0.5rem; /* Space between icon and text */
+    background-color: transparent;
+    color: #a0aec0;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 0.5rem;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s, background-color 0.2s;
+    text-align: left; /* Ensure proper alignment for text */
+  }
+
+  .tab:hover {
+    color: #ffffff; /* Hover color for text */
+  }
+  
+  .tab.active {
+    color: white;
+    position: relative;
+  }
+
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00a3ff;
+    border-radius: 4px 4px 0 0;
+  } 
+
+  
+  /* Tab Content */
+  .tabContent {
+    padding: 1rem 1rem;
+    padding-bottom: 5rem;
+    flex: 1; /* Expand to fill the remaining space */
+    font-size: 14px;
+    color: #333;
+    overflow-y: auto; /* Scrollable for large content */
+  }
+
+  .aboutSection {
+    margin-top: 1rem; /* Space above the section */
+    padding: 1rem; /* Inner padding for spacing */
+    background-color: #f9f9f900; /* Matches the rest of the layout */
+  }
+  
+  .aboutTitle {
+    font-size: 18px; /* Slightly larger for emphasis */
+    font-weight: 600; /* Bold to make it stand out */
+    color: #ffffff; /* White color for contrast */
+    margin-bottom: 0.5rem; /* Space below the title */
+  }
+  
+  .aboutDescription {
+    font-size: 14px; /* Standard text size */
+    font-weight: 350;
+    line-height: 1.5; /* Improves readability */
+    color: #ffffff; /* Subtle text color */
+  }
+  
+  
+  
+  .rightSection {
+    width: 400px;
+    background-color: #f9f9f900;
+    border-right: 1px solid #212F39;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .tokenDetailsTitle {
+    padding: 1rem 0.75rem;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff; /* White title for contrast */
+  }
+  
+  .tokenDetailsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tokenDetailsItem {
+    display: flex;
+    justify-content: space-between; /* Align key on left and value on right */
+    align-items: center;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #212f3981;
+    color: #C2D3DC; /* Subtle text color */
+  }
+  
+  .detailKey {
+    font-size: 13px;
+    font-weight: 400;
+    color: #a0aec0; /* Subtle key color */
+  }
+  
+  .detailValue {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff; /* White text for emphasis */
+    text-align: right; /* Align values to the right */
+  }
+  
+  .detailValueWithIcon {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center the icon and text vertically */
+    gap: 0.5rem; /* Add spacing between the icon and text */
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff; /* White text for emphasis */
+  }
+  
+  .chainIcon {
+    width: 16px; /* Adjust size as needed */
+    height: 16px;
+    object-fit: contain; /* Ensure the icon retains its aspect ratio */
+  }
+  
+  
