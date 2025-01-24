@@ -82,7 +82,7 @@
   
   .postItem {
     position: relative;
-    border-radius: 8px;
+    border-radius: 15px;
     background-color: #182633;
     overflow: hidden;
     display: flex;
@@ -142,6 +142,7 @@
     text-align: center;
     padding: 0.32rem 0.8rem;
     font-size: 12px;
+    font-weight: 500;
     color: white; /* Set text color */
     border-radius: 8px; /* Smooth corners */
     overflow: hidden; /* Prevent text overflow */
