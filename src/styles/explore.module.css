@@ -172,12 +172,21 @@
   
   
   .chain {
-    padding-top: 0.5rem;
-    margin-left: auto; /* Push the element to the far right */
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically align items */
+    gap: 0.35rem; /* Add space between the icon and the text */
     font-size: 13px;
     font-weight: 550;
     color: #849DAC;
+    margin-left: auto; /* Push the element to the far right */
+    padding-top: 0.5rem;
   }
+  
+  .chainIcon {
+    width: 16px; /* Set the icon size */
+    height: 16px;
+  }
+  
   
   .detailRow {
     display: flex;

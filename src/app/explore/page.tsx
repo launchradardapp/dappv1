@@ -23,6 +23,13 @@ const chains = [
     { name: 'Solana', icon: '/assets/icons/solana.svg' },
     { name: 'AVAX', icon: '/assets/icons/avax.svg' },
   ];
+
+  const getChainIcon = (chainName: string): string => {
+    const chain = chains.find((c) => c.name === chainName);
+    return chain ? chain.icon : '/assets/icons/default_chain.svg'; // Use a default icon if no match is found
+  };
+  
+  
   
 export default function ExploreProjects() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -79,11 +86,19 @@ export default function ExploreProjects() {
               <li key={post.id} className={styles.postItem}>
                 <div className={styles.coverPhoto}></div>
                 <div className={styles.cardContent}>
-                  <div className={styles.logoSection}>
-                    <div className={styles.logo}></div>
-                    <p className={styles.chain}>{post.chain}</p>
+                <div className={styles.logoSection}>
+  <div className={styles.logo}></div>
+  <div className={styles.chain}>
+    <img
+      src={getChainIcon(post.chain)} // Now always a string
+      alt={post.chain}
+      className={styles.chainIcon}
+    />
+    {post.chain}
+  </div>
+</div>
 
-                  </div>
+
                   <div className={styles.title}>
                       <h2 className={styles.postTitle}>{post.title}</h2>
                       <p className={styles.symbol}>{post.symbol}</p>
