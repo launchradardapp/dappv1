@@ -21,19 +21,23 @@
     padding: 0 1rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     border-radius: 12px;
   }
   
   .navButton {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align icon and text vertically */
+    gap: 0.5rem; /* Space between icon and text */
     background-color: transparent;
     color: #a0aec0;
     border: none;
     cursor: pointer;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.5rem;
     font-size: 14px;
     font-weight: 500;
     transition: color 0.2s, background-color 0.2s;
+    text-align: left; /* Ensure proper alignment for text */
   }
   
   .navButton:hover {
@@ -54,6 +58,12 @@
     height: 4px;
     background-color: #00a3ff;
     border-radius: 4px 4px 0 0;
+  }
+  
+  .navIcon {
+    width: 20px; /* Set icon width */
+    height: 20px; /* Set icon height */
+    flex-shrink: 0; /* Prevent the icon from shrinking */
   }
   
   .cardContainer {
@@ -200,5 +210,4 @@
     align-items: center; /* Vertically align the icon and text */
     gap: 0.5rem; /* Add space between the icon and text */
   }
-  
   

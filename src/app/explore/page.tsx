@@ -16,8 +16,14 @@ type Post = {
   launch_date: string;
 };
 
-const chains = ['All Chains', 'Ethereum', 'BSC Smart Chain', 'Solana', 'AVAX'];
-
+const chains = [
+    { name: 'All Chains', icon: '/assets/icons/all_chains.svg' },
+    { name: 'Ethereum', icon: '/assets/icons/ethereum.svg' },
+    { name: 'BSC Smart Chain', icon: '/assets/icons/bsc.svg' },
+    { name: 'Solana', icon: '/assets/icons/solana.svg' },
+    { name: 'AVAX', icon: '/assets/icons/avax.svg' },
+  ];
+  
 export default function ExploreProjects() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
@@ -54,18 +60,17 @@ export default function ExploreProjects() {
       {/* Static Navbar */}
       <div className={styles.navbar}>
         {chains.map((chain) => (
-          <button
-            key={chain}
-            className={`${styles.navButton} ${
-              activeChain === chain ? styles.active : ''
-            }`}
-            onClick={() => handleFilter(chain)}
-          >
-            {chain}
-          </button>
-        ))}
+            <button key={chain.name} className={`${styles.navButton} ${activeChain === chain.name ? styles.active : ''}`}
+                onClick={() => handleFilter(chain.name)}>
+                <img
+                    src={chain.icon}
+                    alt={chain.name}
+                    className={styles.navIcon}
+                />
+                {chain.name}
+            </button>
+            ))}
       </div>
-
       {/* Post Cards */}
       <div className={styles.cardContainer}>
         {filteredPosts.length > 0 ? (
