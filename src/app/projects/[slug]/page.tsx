@@ -89,8 +89,7 @@ export default function ProjectDetail() {
         {/* Cover Photo */}
         <div className={styles.coverPhotoContainer}>
           <img
-            src={`data:image/jpeg;base64,${project.cover_photo_base64}`}
-            alt="Cover"
+            src={project.cover_photo_base64}
             className={styles.coverPhoto}
           />
         </div>
