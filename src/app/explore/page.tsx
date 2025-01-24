@@ -21,6 +21,9 @@ const chains = [
     { name: 'Ethereum', icon: '/assets/icons/ethereum.svg' },
     { name: 'BSC Smart Chain', icon: '/assets/icons/bsc.svg' },
     { name: 'Solana', icon: '/assets/icons/solana.svg' },
+    { name: 'Base', icon: '/assets/icons/base.svg' },
+    { name: 'Sui', icon: '/assets/icons/sui.svg' },
+    { name: 'XRP Ledger', icon: '/assets/icons/xrpl.svg' },
     { name: 'AVAX', icon: '/assets/icons/avax.svg' },
   ];
 
