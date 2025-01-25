@@ -96,10 +96,18 @@
     cursor: pointer;
   }  
   
-  .coverPhoto {
-    height: 70px;
-    background-color: #36e8ff;
+  .coverPhotoContainer {
+    width: 100%; /* Ensure the container spans the full width */
+    height: 70px; /* Match the height of the cover photo */
+    overflow: hidden; /* Prevent any overflow */
   }
+  
+  .coverPhoto {
+    width: 100%; /* Make the image span the full width of the container */
+    height: 100%; /* Make the image span the full height of the container */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio while covering the container */
+  }
+  
   
   .cardContent {
     padding: 0 1rem;
@@ -113,6 +121,7 @@
     padding-bottom: 1rem;
   }
   
+
   .logo {
     width: 72px;
     height: 72px;
@@ -122,6 +131,7 @@
     top: 35px; /* Half overlaps the cover */
     border: 3px solid #182633;
   }
+
   
   .postTitle {
     font-size: 16px;

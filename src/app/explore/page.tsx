@@ -17,6 +17,8 @@ type Post = {
   launch_type: string;
   platform: string;
   launch_date: string;
+  cover_photo_base64: string;
+  logo_base64: string;
 };
 
 // Helper function to get the chain icon
@@ -93,10 +95,20 @@ export default function ExploreProjects() {
                 {/* Add ID as a query parameter */}
                 <Link href={`/projects/${post.slug}?id=${post.id}`} passHref>
                   <div className={styles.cardLink}>
-                    <div className={styles.coverPhoto}></div>
+                    <div className={styles.coverPhotoContainer}>
+                    <img
+                      src={post.cover_photo_base64}
+                      className={styles.coverPhoto}
+                    />
+                    </div>
                     <div className={styles.cardContent}>
                       <div className={styles.logoSection}>
-                        <div className={styles.logo}></div>
+                        <div className={styles.logoContainer}>
+                          <img
+                            src={post.logo_base64} // Use the URL directly
+                            className={styles.logo}
+                          />
+                        </div>
                         <div className={styles.chain}>
                           <img
                             src={getChainIcon(post.chain)} // Dynamically fetch icon for each chain

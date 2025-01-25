@@ -13,7 +13,7 @@ export async function GET() {
   try {
     const client = await pool.connect();
     const result = await client.query(`
-      SELECT id, title, slug, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time
+      SELECT id, title, slug, logo_base64, cover_photo_base64, symbol, chain, dex, category, launch_type, platform, launch_date, launch_time
       FROM posts
       ORDER BY created_at DESC
     `);

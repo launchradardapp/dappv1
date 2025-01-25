@@ -93,7 +93,6 @@ export default function ProjectDetail() {
             className={styles.coverPhoto}
           />
         </div>
-
         {/* Project Details Wrapper */}
         <div className={styles.projectDetailsWrapper}>
           <div className={styles.projectDetails}>
