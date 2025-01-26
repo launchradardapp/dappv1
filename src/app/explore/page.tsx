@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link'; // Import Link for navigation
 import { IoRocketSharp } from 'react-icons/io5';
-import Skeleton from 'react-loading-skeleton'; // Import Skeleton
 import 'react-loading-skeleton/dist/skeleton.css'; // Import default styles
 import styles from '@/styles/explore.module.css';
 import { CHAINS, getPlatformIcon, getChainIcon, getDexIcon } from '@/constants/options';
