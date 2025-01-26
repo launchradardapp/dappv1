@@ -14,16 +14,18 @@ export default function Header() {
         <div className={styles.logo}>
           <Link href="/" className={styles.logoLink}>
             <div className={styles.logoCircle}></div>
-            <span className={styles.siteName}>Launch Radar</span>
+            <img 
+              src="/assets/icons/LaunchRadar.svg"  /* Update the path to your SVG file */
+              className={styles.logoImage} /* Optional: Add styling for the logo image */
+            />
           </Link>
         </div>
-
         {/* Navigation Tabs */}
         <nav className={styles.nav}>
           <Link
             href="/explore"
             className={`${styles.navLink} ${
-              pathname === '/explore' ? styles.active : ''
+              pathname.startsWith('/explore') ? styles.active : ''
             }`}
           >
             Explore Projects

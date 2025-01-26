@@ -128,22 +128,41 @@ export default function ProjectDetail() {
               <p className={styles.projectSymbol}>{project.symbol}</p>
             </div>
             <div className={styles.socialsSection}>
-              <ul className={styles.socialLinks}>
-                {project.socials &&
-                  Object.entries(project.socials).map(([platform, url]) => (
-                    <li key={platform} className={styles.socialLinkItem}>
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.socialLink}
-                      >
-                        {platform.charAt(0).toUpperCase() + platform.slice(1)}
-                      </a>
-                    </li>
-                  ))}
-              </ul>
-            </div>
+  <ul className={styles.socialLinks}>
+    {project.socials &&
+      Object.entries(
+        Object.keys(project.socials)
+          .sort((a, b) => {
+            const order = ['website', 'telegram', 'twitter'];
+            const indexA = order.indexOf(a.toLowerCase());
+            const indexB = order.indexOf(b.toLowerCase());
+
+            // Prioritize preferred keys in the defined order
+            if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+            if (indexA !== -1) return -1;
+            if (indexB !== -1) return 1;
+
+            return a.localeCompare(b);
+          })
+          .reduce((acc, key) => {
+            acc[key] = project.socials[key];
+            return acc;
+          }, {} as Record<string, string>)
+      ).map(([platform, url]) => (
+        <li key={platform} className={styles.socialLinkItem}>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            {platform.charAt(0).toUpperCase() + platform.slice(1)}
+          </a>
+        </li>
+      ))}
+  </ul>
+</div>
+
 
           </div>
         </div>

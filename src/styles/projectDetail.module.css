@@ -62,7 +62,7 @@
     height: 100px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: white;
+    background-color: #0E1621;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 4px solid #0E1621;
   }
@@ -136,13 +136,11 @@
   .socialsSection {
     padding: 1rem 0; /* Space above socials */
     padding-bottom: 0.8rem;
-    
   }
-  
   
   .socialLinks {
     display: flex;
-    gap: 0.45rem; /* Add space between links */
+    gap: 0.30rem; /* Add space between links */
     flex-wrap: wrap; /* Wrap links to the next line if needed */
   }
   
@@ -154,7 +152,7 @@
     font-size: 12px;
     font-weight: 500;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.15s;
   }
   
   .socialLink:hover {
