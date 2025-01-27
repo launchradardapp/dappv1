@@ -98,7 +98,7 @@ ul, ol {
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #3470cc; /* Scrollbar thumb color */
+    background-color: #212e43; /* Scrollbar thumb color */
     border-radius: 10px;
     
   }
