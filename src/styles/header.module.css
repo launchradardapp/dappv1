@@ -18,6 +18,7 @@
   .logo {
     display: flex;
     align-items: center; /* Center logo and text vertically */
+    margin-right: 2.5rem;
   }
   
   .logoLink {
@@ -28,8 +29,8 @@
   }
   
   .logoCircle {
-    width: 35px; /* Circle size */
-    height: 35px;
+    width: 0px; /* Circle size */
+    height: 0px;
     background-color: #00D0FF; /* Circle color */
     border-radius: 50%; /* Make it a circle */
     margin-right: 0.5rem; /* Space between circle and text */

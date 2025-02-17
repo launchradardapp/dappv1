@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Launch Radar',
-  description: 'Discover and list crypto projects.',
+  description: 'Discover Upcoming Crypto Projects.',
 };
 
 export default function RootLayout({

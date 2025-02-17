@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from '@/styles/projectDetail.module.css';
 import { IoRocketSharp } from 'react-icons/io5';
-import { CHAINS } from '@/constants/options';
+import { CHAINS, getPlatformIcon, getChainIcon, getDexIcon } from '@/constants/options';
 
 type Project = {
   id: number;
@@ -25,11 +25,6 @@ type Project = {
 };
 
 
-// Helper function to get the chain icon
-const getChainIcon = (chainName: string): string => {
-  const chain = CHAINS.find((c) => c.name === chainName);
-  return chain ? chain.icon : '/assets/icons/default_chain.svg'; // Default icon if no match is found
-};
 
 export default function ProjectDetail() {
   const searchParams = useSearchParams();
@@ -200,11 +195,10 @@ export default function ProjectDetail() {
             <span className={styles.detailValue}>{project.symbol || 'N/A'}</span>
           </li>
           <li className={styles.tokenDetailsItem}>
-            <span className={styles.detailKey}>Chain:</span>
+            <span className={styles.detailKey}>Chain</span>
             <span className={styles.detailValueWithIcon}>
               <img
                 src={getChainIcon(project.chain)}
-                alt={project.chain}
                 className={styles.chainIcon}
               />
               {project.chain || 'N/A'}
@@ -212,7 +206,13 @@ export default function ProjectDetail() {
           </li>
           <li className={styles.tokenDetailsItem}>
             <span className={styles.detailKey}>DEX</span>
-            <span className={styles.detailValue}>{project.dex || 'N/A'}</span>
+            <span className={styles.detailValueWithIcon}>
+              <img
+                src={getDexIcon(project.dex)}
+                className={styles.chainIcon}
+              />
+              {project.dex || 'N/A'}
+            </span>
           </li>
           <li className={styles.tokenDetailsItem}>
             <span className={styles.detailKey}>Contract Address</span>
@@ -232,7 +232,13 @@ export default function ProjectDetail() {
           </li>
           <li className={styles.tokenDetailsItem}>
             <span className={styles.detailKey}>Launch Platform</span>
-            <span className={styles.detailValue}>{project.platform || 'N/A'}</span>
+            <span className={styles.detailValueWithIcon}>
+              <img
+                src={getPlatformIcon(project.platform)}
+                className={styles.chainIcon}
+              />
+              {project.platform || 'N/A'}
+            </span>
           </li>
           <li className={styles.tokenDetailsItem}>
             <span className={styles.detailKey}>Launch Date</span>

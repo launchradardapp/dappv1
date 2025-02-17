@@ -21,7 +21,7 @@
     padding: 0 1rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     border-radius: 12px;
   }
   
@@ -327,3 +327,52 @@
 
   
   
+/* Sub Navbar (Time Filter) */
+.subNavbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 0.5rem;
+  border-radius: 10px;
+}
+
+/* Sub Navbar Buttons */
+.subNavButton {
+  background-color: transparent;
+  color: #a0aec0;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 1rem;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s, background-color 0.2s, border 0.2s, transform 0.1s ease-in-out;
+  border: 1px solid #212F39;
+  border-radius: 8px;
+}
+
+/* Hover Effect */
+.subNavButton:hover {
+  color: white;
+}
+
+/* Active Button */
+.subNavButton.active {
+  color: white;
+  background-color: #00a3ff;
+  border: 1px solid #00a3ff;
+
+}
+
+.noPosts {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 0.5rem; /* Space between icon and text */
+  font-size: 18px;
+  font-weight: 500;
+  color: #849DAC; /* Match icon color */
+  margin-top: 10rem; /* Add spacing */
+  gap: 1rem;
+}
+

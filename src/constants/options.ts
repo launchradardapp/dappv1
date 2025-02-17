@@ -53,7 +53,7 @@ export const PLATFORMS: PlatformData[] = [
 export const DEXES: DexData[] = [
   { name: 'Uniswap v2', icon: '/assets/icons/uniswap.png' },
   { name: 'Uniswap v3', icon: '/assets/icons/uniswap.png' },
-  { name: 'SushiSwap', icon: '/assets/icons/sushiswap.svg' },
+  { name: 'SushiSwap', icon: '/assets/icons/--' },
   { name: 'PancakeSwap', icon: '/assets/icons/pancakeswap.png' },
   { name: 'PancakeSwap v3', icon: '/assets/icons/pancakeswap.png' },
   { name: 'Raydium', icon: '/assets/icons/raydium.svg' },
@@ -76,12 +76,12 @@ export const CHAIN_RELATIONSHIPS: ChainRelationship[] = [
   {
     chain: 'Solana',
     dexes: ['Raydium', 'Other'],
-    platforms: ['GemPad', 'Pump.fun', 'Manual Listing', 'PinkSale', 'Other'],
+    platforms: ['GemPad', 'PinkSale', 'Pump.fun', 'Manual Listing', 'Other'],
   },
   {
     chain: 'Base',
     dexes: ['Uniswap v2', 'Uniswap v3', 'Other'],
-    platforms: ['PinkSale', 'Manual Listing', 'Other'],
+    platforms: ['GemPad', 'PinkSale', 'Pump.fun', 'Manual Listing', 'Other'],
   },
   {
     chain: 'Sui',
