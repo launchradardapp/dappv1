@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from '@/styles/projectDetail.module.css';
 import { IoRocketSharp } from 'react-icons/io5';
-import { CHAINS, getPlatformIcon, getChainIcon, getDexIcon } from '@/constants/options';
+import { getPlatformIcon, getChainIcon, getDexIcon } from '@/constants/options';
 
 type Project = {
   id: number;
